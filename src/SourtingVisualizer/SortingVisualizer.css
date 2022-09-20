@@ -1,14 +1,18 @@
-.array-container{
-    /* background-color: aqua; */
-    position: absolute; 
-    left: 100px;
-    
+.array-container {
+  /* background-color: aqua; */
+  /* position: absolute;  */
+  left: 30px;
 }
 
-.array-bar{
-    width: 2px;
-    background-color: #ff7782;
-    display: inline-block;
-    margin: 0 1px;
-    /* position: absolute; */
+.array-bar {
+  width: 5px;
+  background-color: #ff7782;
+  display: inline-block;
+  margin: 0 1px;
+  /* position: absolute; */
+}
+
+.btn-new {
+  display: block;
+  margin: 0 auto; /*center*/
 }
