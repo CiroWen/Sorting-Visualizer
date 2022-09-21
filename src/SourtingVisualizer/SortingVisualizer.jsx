@@ -1,57 +1,47 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import "./SortingVisualizer.css";
 
-export default class SortingVisualizer extends React.Component {
-  constructor(props) {
-    super(props);
-
-    // variable stored in state
-    this.state = {
-      array: [], //main array to store random generated  numbers
-    };
-  }
-
+const App = props => {
+  const [arr, setArr] = useState([]); //variable stored in state, useState returns the current state and a function that updates it.
   /**
-   * excutes when SortingVisualizer component loads
+   *
+   * @param {number} min inclusive lower bound
+   * @param {number} max inclusive upper bound
+   * @returns {number} a random integer range from [min,max]
    */
-  componentDidMount() {
-    this.resetArray();
-  }
-
+  const randomIntFromInterval = (min, max) => {
+    return Math.floor(Math.random() * max + min);
+  };
   /**
-   * method to generate and reset array
+   * method to generate a
    */
-  resetArray() {
-    const array = [];
+  const resetArr = () => {
+    const temp = [];
     for (let i = 0; i < 140; i++) {
       let rnd = randomIntFromInterval(5, 900);
-      if (!array.includes(rnd)) array.push(rnd);
+      if (!temp.includes(rnd)) temp.push(rnd);
     }
-    this.setState({ array });
-  }
+    setArr(temp);
+  };
 
-  render() {
-    const { array } = this.state;
-    return (
-      <div className="array-container">
-        {array.map((value, idx) => (
-          <div className="array-bar" key={idx} style={{ height: `${value}px` }}>
-            {/* {value} */}
-          </div>
-        ))}
-        <button className="btn-new">Generate New Array</button>
-      </div>
-    );
-  }
-}
+  /**
+   * componentDidMount alternative
+   */
+  useEffect(() => {
+    resetArr();
+  }, []);
 
-/**
- * 
- * @param {number} min inclusive lower bound
- * @param {number} max inclusive upper bound
- * @returns 
- */
-function randomIntFromInterval(min, max) {
-  //   return Math.floor(Math.random() * max + min);
-  return Math.floor(Math.random() * max + min);
-}
+  // html layout returned to be used elsewhere as a component.
+  return (
+    <div className="array-container">
+      {arr.map((value, idx) => (
+        <div className="array-bar" key={idx} style={{ height: `${value}px` }}>
+          {/* {value} */}
+        </div>
+      ))}
+      <button className="btn-new" onClick={resetArr}>Generate New Array</button>
+    </div>
+  );
+};
+
+export default App;
