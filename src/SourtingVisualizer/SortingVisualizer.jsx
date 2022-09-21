@@ -45,6 +45,12 @@ export default class SortingVisualizer extends React.Component {
   }
 }
 
+/**
+ * 
+ * @param {number} min inclusive lower bound
+ * @param {number} max inclusive upper bound
+ * @returns 
+ */
 function randomIntFromInterval(min, max) {
   //   return Math.floor(Math.random() * max + min);
   return Math.floor(Math.random() * max + min);
