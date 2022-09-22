@@ -24,6 +24,11 @@ const App = props => {
     setArr(temp);
   };
 
+
+  const mergeSort = () =>{
+
+  }
+
   /**
    * componentDidMount alternative
    */
@@ -40,6 +45,7 @@ const App = props => {
         </div>
       ))}
       <button className="btn-new" onClick={resetArr}>Generate New Array</button>
+      <button className="btn-new" onClick={mergeSort}>Merge Sort</button>
     </div>
   );
 };

@@ -13,6 +13,7 @@
 }
 
 .btn-new {
-  display: block;
-  margin: 0 auto; /*center*/
+  display: inline-block;
+  margin: 0 5px; /*center*/
+  
 }
