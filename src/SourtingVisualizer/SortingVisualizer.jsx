@@ -13,21 +13,23 @@ const App = props => {
     return Math.floor(Math.random() * max + min);
   };
   /**
-   * method to generate a
+   * method to generate an array containing random numbers
    */
   const resetArr = () => {
     const temp = [];
-    for (let i = 0; i < 140; i++) {
-      let rnd = randomIntFromInterval(5, 900);
-      if (!temp.includes(rnd)) temp.push(rnd);
+    for (let i = 0; i < 120; i++) {
+      let rnd;
+      do {
+        rnd = randomIntFromInterval(5, 600);
+      } while (temp.includes(rnd));
+      temp.push(rnd);
     }
     setArr(temp);
   };
 
-
-  const mergeSort = () =>{
-
-  }
+  const mergeSort = () => {
+    console.log(1);
+  };
 
   /**
    * componentDidMount alternative
@@ -44,8 +46,12 @@ const App = props => {
           {/* {value} */}
         </div>
       ))}
-      <button className="btn-new" onClick={resetArr}>Generate New Array</button>
-      <button className="btn-new" onClick={mergeSort}>Merge Sort</button>
+      <button className="btn-new" onClick={resetArr}>
+        Generate New Array
+      </button>
+      <button className="btn-new" onClick={mergeSort}>
+        Merge Sort
+      </button>
     </div>
   );
 };
