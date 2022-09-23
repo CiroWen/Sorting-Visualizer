@@ -10,14 +10,14 @@ const App = props => {
    * @returns {number} a random integer range from [min,max]
    */
   const randomIntFromInterval = (min, max) => {
-    return Math.floor(Math.random() * max + min);
+    return Math.round(Math.random() * (max - min) + min);
   };
   /**
    * method to generate an array containing random numbers
    */
   const resetArr = () => {
     const temp = [];
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 130; i++) {
       let rnd;
       do {
         rnd = randomIntFromInterval(5, 600);
@@ -25,6 +25,7 @@ const App = props => {
       temp.push(rnd);
     }
     setArr(temp);
+    console.log(temp);
   };
 
   const mergeSort = () => {
