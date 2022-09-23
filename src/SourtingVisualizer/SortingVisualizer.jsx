@@ -3,6 +3,7 @@ import "./SortingVisualizer.css";
 import * as algos from "./sortingAlgos/sortingAlgos";
 const App = props => {
   const [arr, setArr] = useState([]); //variable stored in state, useState returns the current state and a function that updates it.
+  const [barArr, setBarArr] = useState([])
   /**
    *
    * @param {number} min inclusive lower bound
@@ -15,7 +16,7 @@ const App = props => {
   /**
    * method to generate an array containing random numbers
    */
-  const resetArr = () => {
+  const resetArr = async() => {
     const temp = [];
     for (let i = 0; i < 130; i++) {
       let rnd;
@@ -24,15 +25,20 @@ const App = props => {
       } while (temp.includes(rnd));
       temp.push(rnd);
     }
-    setArr(temp);
+     await setArr(temp);
+    setBarArr(document.querySelectorAll('.array-bar'))
   };
 
   const mergeSort = () => {
+    
     const jsSortedArr = arr.slice().sort((a, b) => a - b);
-    const selfSortedArr = algos.mergeSort(arr)
-    console.log(isEqual(jsSortedArr,selfSortedArr));
+    const selfSortedArr = algos.mergeSort(Array.prototype.slice.call(barArr))
     console.log(jsSortedArr);
-    console.log(selfSortedArr);
+    const tempArr = []
+    selfSortedArr.map((val,idx) => {
+      tempArr.push(parseInt(val.style.height.replace('px','')))
+    })
+    console.log(isEqual(jsSortedArr,tempArr));
   };
 
   const isEqual = (arrA, arrB) => {
