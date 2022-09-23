@@ -39,6 +39,7 @@ const App = props => {
       tempArr.push(parseInt(val.style.height.replace('px','')))
     })
     console.log(isEqual(jsSortedArr,tempArr));
+    // setArr(tempArr)
   };
 
   const isEqual = (arrA, arrB) => {
