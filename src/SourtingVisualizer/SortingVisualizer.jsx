@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./SortingVisualizer.css";
-
+import * as algos from "./sortingAlgos/sortingAlgos";
 const App = props => {
   const [arr, setArr] = useState([]); //variable stored in state, useState returns the current state and a function that updates it.
   /**
@@ -25,11 +25,22 @@ const App = props => {
       temp.push(rnd);
     }
     setArr(temp);
-    console.log(temp);
   };
 
   const mergeSort = () => {
-    console.log(1);
+    const jsSortedArr = arr.slice().sort((a, b) => a - b);
+    const selfSortedArr = algos.mergeSort(arr)
+    console.log(isEqual(jsSortedArr,selfSortedArr));
+    console.log(jsSortedArr);
+    console.log(selfSortedArr);
+  };
+
+  const isEqual = (arrA, arrB) => {
+    if (arrA.length !== arrB.length) return false;
+    for (let i = 0; i < arrA.length; i++) {
+      if (arrA[i] !== arrB[i]) return false;
+    }
+    return true;
   };
 
   /**
