@@ -9,11 +9,9 @@
   background-color: #ff7782;
   display: inline-block;
   margin: 0 1px;
-  /* position: absolute; */
 }
 
 .btn-new {
   display: inline-block;
   margin: 0 5px; /*center*/
-  
 }
