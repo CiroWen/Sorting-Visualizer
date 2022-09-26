@@ -31,14 +31,14 @@ const App = props => {
   };
 
   const recordedAnimation = () => {
-    for (let i = 0; i< recordArr.length; i++){
-      const arrayBars = document.getElementsByClassName('array-bar')
+    for (let i = 0; i < recordArr.length; i++) {
+      const arrayBars = document.getElementsByClassName("array-bar");
       const isClrChanged = i % 3 !== 2;
-      if(isClrChanged){
-        const [barOneIdx , barTwoIdx] = recordArr[i]
+      if (isClrChanged) {
+        const [barOneIdx, barTwoIdx] = recordArr[i];
         const barOneStyle = arrayBars[barOneIdx].style;
         const barTwoStyle = arrayBars[barTwoIdx].style;
-        const color = i % 3 === 0 ? 'blue' : '#ff7782'
+        const color = i % 3 === 0 ? "blue" : "#ff7782";
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
@@ -50,9 +50,7 @@ const App = props => {
           barOneStyle.height = `${newHeight}px`;
         }, i * 10);
       }
-      
     }
-
   };
 
   const mergeSort = () => {
@@ -64,21 +62,13 @@ const App = props => {
       // Array.prototype.slice.call(barArr),
       recordArr
     );
-      recordedAnimation()
-    // const tempArr = [];
-    // console.log(selfSortedArr);
-    // selfSortedArr.map((val, idx) => {
-    //   tempArr.push(parseInt(val.style.height.replace("px", "")));
-    // });
-    // console.log(isEqual(jsSortedArr, tempArr));
-    console.log(isEqual(jsSortedArr, selfSortedArr));
+    recordedAnimation();
+    // console.log(isEqual(jsSortedArr, selfSortedArr));
     // setArr(tempArr)
     // setArr(selfSortedArr);
-    console.log(recordArr);
+    // console.log(recordArr);
     // console.log(tempArr);
-    
   };
-  
 
   const isEqual = (arrA, arrB) => {
     if (arrA.length !== arrB.length) return false;
