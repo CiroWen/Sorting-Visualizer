@@ -44,13 +44,13 @@ const App = props => {
         setTimeout(() => {
           barOneStyle.backgroundColor = color;
           barTwoStyle.backgroundColor = color;
-        }, i * 10);
+        }, i *2);
       } else {
         setTimeout(() => {
           const [barOneIdx, newHeight] = recordArr[i];
           const barOneStyle = arrayBars[barOneIdx].style;
           barOneStyle.height = `${newHeight}px`;
-        }, i * 10);
+        }, i *2);
       }
     }
   };
