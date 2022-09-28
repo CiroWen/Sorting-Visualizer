@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import "./SortingVisualizer.css";
 import * as algos from "./sortingAlgos/sortingAlgos";
 const App = props => {
-  const [arr, setArr] = useState([]); //variable stored in state, useState returns the current state and a function that updates it.
-  // const [barArr, setBarArr] = useState([]);
-  let recordArr = [];
+  const [arr, setArr] = useState([]); // useState returns the current state and a function that updates it.
+  let recordArr = []; // an array that records algorithm
   /**
    *
    * @param {number} min inclusive lower bound
@@ -30,6 +29,9 @@ const App = props => {
     // setBarArr(document.querySelectorAll(".array-bar"));
   };
 
+  /**
+   * manipulates the style of bars according to the record array
+   */
   const recordedAnimation = () => {
     for (let i = 0; i < recordArr.length; i++) {
       const arrayBars = document.getElementsByClassName("array-bar");
@@ -53,13 +55,14 @@ const App = props => {
     }
   };
 
+  /**
+   * function bound to algorithm button.
+   */
   const mergeSort = () => {
     const jsSortedArr = arr.slice().sort((a, b) => a - b);
     const selfSortedArr = algos.mergeSort(
       arr,
       arr.slice(),
-      // Array.prototype.slice.call(barArr),
-      // Array.prototype.slice.call(barArr),
       recordArr
     );
     recordedAnimation();
@@ -70,6 +73,12 @@ const App = props => {
     // console.log(tempArr);
   };
 
+  /**
+   * to test if two arrays are identical
+   * @param {*} arrA 
+   * @param {*} arrB 
+   * @returns boolean
+   */
   const isEqual = (arrA, arrB) => {
     if (arrA.length !== arrB.length) return false;
     for (let i = 0; i < arrA.length; i++) {
@@ -79,7 +88,7 @@ const App = props => {
   };
 
   /**
-   * componentDidMount alternative
+   * componentDidMount 
    */
   useEffect(() => {
     resetArr();
